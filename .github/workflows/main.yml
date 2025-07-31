@@ -37,6 +37,9 @@ jobs:
       - name: Upgrade Yarn
         run: npm install -g yarn@latest
 
+      - name: Set Yarn registry to HTTP
+        run: yarn config set registry "http://registry.npmjs.org/"
+
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
