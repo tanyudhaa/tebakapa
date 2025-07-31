@@ -33,6 +33,9 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      
+      - name: Upgrade Yarn
+        run: npm install -g yarn@latest
 
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
